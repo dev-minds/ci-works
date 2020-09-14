@@ -22,7 +22,9 @@ pipeline {
         stage('Deploy') {
             steps{
                 sshagent(credentials: ['ssh_priv']) {
-                    sh "ssh -vvvv -o StrictHostKeyChecking=no centos@63.33.51.136 uptime"
+                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uptime"
+                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uname -ras"
+                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 hostname -f"
                 }
             }
         }
