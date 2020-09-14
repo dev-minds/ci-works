@@ -1,4 +1,4 @@
-@Library('jk_shared_lib@master') _
+// @Library('jk_shared_lib@master') _
 
 pipeline {
     agent any 
