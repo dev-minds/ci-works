@@ -21,12 +21,12 @@ pipeline {
         }
         stage('Deploy') {
             steps{
-                sshagent(credentials: ['ssh_priv']) {
-                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uptime"
-                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uname -ras"
-                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 hostname -f"
-                    sh "ssh -t -t -t -o BatchMode=yes -o StrictHostKeyChecking=no centos@63.33.51.136 sudo systemctl restart nginx"
-                    sh "ssh -t -t -t -o BatchMode=yes -o  StrictHostKeyChecking=no centos@63.33.51.136 sudo systemctl status nginx"
+                sshagent(credentials: ['devcounty-ssh-pem']) {
+                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33uptime"
+                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33uname -ras"
+                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33hostname -f"
+                    sh "ssh -t -t -t -o BatchMode=yes -o StrictHostKeyChecking=no centos@34.245.42.33sudo systemctl restart nginx"
+                    sh "ssh -t -t -t -o BatchMode=yes -o  StrictHostKeyChecking=no centos@34.245.42.33sudo systemctl status nginx"
                 }
             }
         }
