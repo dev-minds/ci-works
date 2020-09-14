@@ -25,6 +25,8 @@ pipeline {
                     sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uptime"
                     sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 uname -ras"
                     sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 hostname -f"
+                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 systemctl restart nginx"
+                    sh "ssh -o StrictHostKeyChecking=no centos@63.33.51.136 sudo systemctl status nginx"
                 }
             }
         }
