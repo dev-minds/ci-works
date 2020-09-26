@@ -19,13 +19,10 @@ pipeline {
                 }                 
             }
         }
-        stage('Deploy') {
+        stage('Prd-Deployment'){
             steps{
-                sshagent(credentials: ['devcounty-ssh-pem']) {
-                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33 uptime"
-                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33 uname -ras"
-                    sh "ssh -o StrictHostKeyChecking=no centos@34.245.42.33 hostname -f"
-                    sh "ssh -t -t -t -o BatchMode=yes -o  StrictHostKeyChecking=no centos@34.245.42.33 sudo systemctl status nginx"
+                sshagent(credentials: ['prd-keys-creds']) {
+                    sh "ssh -o BatchMode=yes -o StrictHostKeyChecking=no jenkins@192.168.1.141 'uptime'"
                 }
             }
         }
